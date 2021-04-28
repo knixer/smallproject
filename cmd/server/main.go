@@ -18,10 +18,6 @@ func index_handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	//Ctrl+Alt+M to stop server
-	//http.HandleFunc("/", index_handler)
-	//http.ListenAndServe(":8000", nil)
-
-	fmt.Print("Hej")
 
 	server := api.New()
 
@@ -32,7 +28,6 @@ func main() {
 	go func() {
 		if err := server.Run(); err != nil {
 			fmt.Printf("listen: %v", err)
-			//log.Fatalf("listen: %v", err)
 		}
 	}()
 
