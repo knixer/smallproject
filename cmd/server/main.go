@@ -3,18 +3,12 @@ package main
 import (
 	"Car/pkg/api"
 	"fmt"
-	"net/http"
 
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
 )
-
-func index_handler(w http.ResponseWriter, r *http.Request) {
-
-	fmt.Fprintf(w, "Whoa, Go is neat!!!")
-}
 
 func main() {
 	//Ctrl+Alt+M to stop server
