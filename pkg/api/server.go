@@ -6,6 +6,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/labstack/echo/v4"
@@ -39,7 +40,15 @@ func New() *Server {
 }
 
 func (s *Server) Run() error {
-	return s.Router.Start(":8000")
+
+	return s.Router.Start(":" + port())
+}
+
+func port() string {
+	if port, exists := os.LookupEnv("PORT"); exists {
+		return port
+	}
+	return "8000"
 }
 
 func (s *Server) Shutdown(timeout time.Duration) {
